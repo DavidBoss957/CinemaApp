@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         when(v!!.id){
             binding.login.id->{}
             binding.crearCuenta.id->{
-                val intent = Intent(applicationContext, `Sing upActivity`::class.java)
+                val intent = Intent(applicationContext, SingupActivity::class.java)
                 startActivity(intent)
                 finish()
             }

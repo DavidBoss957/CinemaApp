@@ -16,7 +16,7 @@
         android:hint="Introduce correo"
         android:id="@+id/Correo"
         android:gravity="center"
-        android:drawableLeft="@drawable/hombre"
+        android:drawableLeft="@drawable/user"
         />
     <EditText
         android:layout_marginTop="12dp"
@@ -25,7 +25,7 @@
         android:hint="Introduce contraseña"
         android:id="@+id/Contraseña"
         android:gravity="center"
-        android:drawableLeft="@drawable/password"
+        android:drawableLeft="@drawable/passwd"
         android:inputType="textPassword"
         />
     <Button

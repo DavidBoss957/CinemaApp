@@ -15,12 +15,12 @@
 
         <activity android:name=".ui.SingupActivity"
         android:exported="true"
-        android:label="@string/title_activity_signup"
+        android:label="title_activity_signup"
         android:theme="@style/Theme.CinemaApp" />
 
         <activity android:name=".ui.MoviesActivity"
             android:exported="true"
-            android:label="@string/title_activity_movies"
+            android:label="title_activity_movies"
         android:theme="@style/Theme.CinemaApp" />
 
         <activity android:name=".ui.MoviesAdapter"

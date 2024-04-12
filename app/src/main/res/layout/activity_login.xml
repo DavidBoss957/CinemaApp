@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Introduce correo"
-        android:id="@+id/Correo"
+        android:id="@+id/mail"
         android:gravity="center"
         android:drawableLeft="@drawable/user"
         />
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Introduce contraseña"
-        android:id="@+id/Contraseña"
+        android:id="@+id/passwd"
         android:gravity="center"
         android:drawableLeft="@drawable/passwd"
         android:inputType="textPassword"

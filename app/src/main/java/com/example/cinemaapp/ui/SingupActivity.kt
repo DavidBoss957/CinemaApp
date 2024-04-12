@@ -1,5 +1,6 @@
 package com.example.cinemaapp.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -17,7 +18,7 @@ class SingupActivity : AppCompatActivity() {
             registrarUsuario()
         }
     }
-
+    
     private fun registrarUsuario() {
         val nombre = binding.editText.text.toString().trim()
         val contraseña = binding.contrasena.text.toString().trim()
@@ -47,6 +48,19 @@ class SingupActivity : AppCompatActivity() {
         if (contraseña != confirmarContraseña) {
             Toast.makeText(this, "La contraseña introducida no es correcta", Toast.LENGTH_SHORT).show()
             return
+        }else{
+                // Guardar los datos en SharedPreferences
+                val sharedPref = getSharedPreferences("CinemaAppPrefs", MODE_PRIVATE)
+                with (sharedPref.edit()) {
+                    putString("nombreUsuario", nombre)
+                    putString("contrasenaUsuario", contraseña)
+                    apply()
+                }
+
+                // Ir a la pantalla de login
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
         }
     }
 }

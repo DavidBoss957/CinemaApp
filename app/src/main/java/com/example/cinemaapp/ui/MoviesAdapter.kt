@@ -2,31 +2,33 @@ package com.example.cinemaapp.ui
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cinemaapp.R
+import com.bumptech.glide.Glide
+import com.example.cinemaapp.databinding.MovieItemBinding
 
-class MoviesAdapter(private val context: Context, private val movieList: List<Movie>) :
+class MoviesAdapter(private val context: Context, private var movieList: List<Movie>) :
     RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.movie_item, parent, false)
-        return MovieViewHolder(view)
+        val binding = MovieItemBinding.inflate(LayoutInflater.from(context), parent, false)
+        return MovieViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movieList[position]
-        holder.titleTextView.text = movie.title
+        with(holder.binding) {
+            movieTitleTextView.text = movie.title
+            Glide.with(context).load(movie.posterPath).into(movieImageView)
+        }
     }
 
-    override fun getItemCount(): Int {
-        return movieList.size
+    override fun getItemCount(): Int = movieList.size
+
+    fun updateMovies(movies: List<Movie>) {
+        this.movieList = movies
+        notifyDataSetChanged()
     }
 
-    class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var titleTextView: TextView = itemView.findViewById(R.id.movieTitleTextView)
-    }
+    class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root)
 }
-

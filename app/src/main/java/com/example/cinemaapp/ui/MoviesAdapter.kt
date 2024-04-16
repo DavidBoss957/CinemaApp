@@ -1,6 +1,7 @@
 package com.example.cinemaapp.ui
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,19 @@ class MoviesAdapter(private val context: Context, private var movieList: List<Mo
             movieTitleTextView.text = movie.title
             Glide.with(context).load(movie.posterPath).into(movieImageView)
         }
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val detailIntent = Intent(context, MovieDetailActivity::class.java).apply {
+                putExtra("EXTRA_ID", movie.id)
+                putExtra("EXTRA_TITLE", movie.title)
+                putExtra("EXTRA_DESCRIPTION", movie.description)
+                putExtra("EXTRA_POSTER_PATH", movie.posterPath)
+                putExtra("EXTRA_PRICE", movie.price)
+            }
+            context.startActivity(detailIntent)
+        }
+
     }
 
     override fun getItemCount(): Int = movieList.size

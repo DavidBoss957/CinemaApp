@@ -18,6 +18,11 @@
         android:label="title_activity_signup"
         android:theme="@style/Theme.CinemaApp" />
 
+        <activity android:name=".ui.MovieDetailActivity"
+            android:exported="true"
+            android:label="movie_detail_activit"
+            android:theme="@style/Theme.CinemaApp" />
+
         <activity android:name=".ui.MoviesActivity"
             android:exported="true"
             android:label="title_activity_movies"

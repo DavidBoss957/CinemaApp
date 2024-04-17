@@ -1,66 +1,72 @@
 package com.example.cinemaapp.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cinemaapp.databinding.ActivitySingupBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class SingupActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySingupBinding
+    private lateinit var auth: FirebaseAuth // Referencia a FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySingupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Inicializar Firebase Auth
+        auth = FirebaseAuth.getInstance()
+
+        // Configurar listener para el botón de registro
         binding.botonRegistrar.setOnClickListener {
-            registrarUsuario()
+            val email = binding.correo.text.toString().trim()
+            val password = binding.contrasena.text.toString().trim()
+            val confirmPassword = binding.confirmarContraseA.text.toString().trim()
+
+            when {
+                email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() -> {
+                    Toast.makeText(this, "Todos los campos son obligatorios.", Toast.LENGTH_SHORT).show()
+                }
+                password != confirmPassword -> {
+                    Toast.makeText(this, "Las contraseñas no coinciden.", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    // Proceso de registro usando Firebase
+                    auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                // Registro exitoso, navegar al siguiente pantalla
+                                val intent = Intent(this, LoginActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                // Si el registro falla, muestra un mensaje al usuario.
+                                Toast.makeText(this, "Error de registro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                }
+            }
         }
     }
-    
-    private fun registrarUsuario() {
-        val nombre = binding.editText.text.toString().trim()
-        val contraseña = binding.contrasena.text.toString().trim()
-        val confirmarContraseña = binding.confirmarContraseA.text.toString().trim()
-        val correo = binding.correo.text.toString().trim()
 
-        if (nombre.isEmpty()) {
-            Toast.makeText(this, "Falta introducir el nombre", Toast.LENGTH_SHORT).show()
-            return
+    // Si quieres manejar el usuario actual en onStart puedes hacerlo aquí
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        // Actualiza la UI dependiendo del estado del usuario
+        // Si el usuario ya está logueado, puedes redirigirlo directamente
+        if (currentUser != null) {
+            goToMainActivity()
         }
+    }
 
-        if (contraseña.isEmpty()) {
-            Toast.makeText(this, "Falta introducir la contraseña", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (confirmarContraseña.isEmpty()) {
-            Toast.makeText(this, "Falta confirmar la contraseña", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (correo.isEmpty()) {
-            Toast.makeText(this, "Falta introducir el correo", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (contraseña != confirmarContraseña) {
-            Toast.makeText(this, "La contraseña introducida no es correcta", Toast.LENGTH_SHORT).show()
-            return
-        }else{
-                // Guardar los datos en SharedPreferences
-                val sharedPref = getSharedPreferences("CinemaAppPrefs", MODE_PRIVATE)
-                with (sharedPref.edit()) {
-                    putString("nombreUsuario", nombre)
-                    putString("contrasenaUsuario", contraseña)
-                    apply()
-                }
-
-                // Ir a la pantalla de login
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
-        }
+    private fun goToMainActivity() {
+        // Implementa la navegación a la actividad principal si el usuario ya está autenticado
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

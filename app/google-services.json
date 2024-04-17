@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "873931844227",
+    "project_id": "dsa-entregable1",
+    "storage_bucket": "dsa-entregable1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873931844227:android:d00265fb06c99d50abc9b6",
+        "android_client_info": {
+          "package_name": "cinemaapp.ui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqmj5MtpCrnBL44jTfKd4fZajurzDEKu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873931844227:android:5142f20959f46b6eabc9b6",
+        "android_client_info": {
+          "package_name": "com.example.cinemaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqmj5MtpCrnBL44jTfKd4fZajurzDEKu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

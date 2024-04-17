@@ -20,7 +20,7 @@
 
         <activity android:name=".ui.MovieDetailActivity"
             android:exported="true"
-            android:label="movie_detail_activit"
+            android:label="movie_detail_activity"
             android:theme="@style/Theme.CinemaApp" />
 
         <activity android:name=".ui.MoviesActivity"

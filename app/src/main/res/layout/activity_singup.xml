@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,11 +17,12 @@
 
     <TextView
         android:id="@+id/textoRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="279dp"
+        android:layout_height="39dp"
         android:paddingLeft="75dp"
         android:paddingRight="75dp"
         android:text="Registro"
+        android:textColor="#FFD700"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,6 +34,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#757575"
 
         android:hint="introduce nombre"
         app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
@@ -45,7 +49,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-
+        android:textColor="#FFFFFF"
+        android:textColorHint="#757575"
 
         android:hint="Introduce contraseña"
         app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
@@ -58,6 +63,8 @@
         android:layout_height="wrap_content"
         android:hint="Confirme contraseña"
         android:layout_marginTop="24dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#757575"
 
         app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
         app:layout_constraintHorizontal_bias="0.506"
@@ -70,6 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:hint="Introduzca correo"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#757575"
 
         app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
         app:layout_constraintStart_toStartOf="@+id/textoRegistro"
@@ -80,6 +89,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#757575"
 
         android:text="masculino"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,6 +102,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#757575"
 
         android:text="femenino"
         app:layout_constraintEnd_toStartOf="@+id/radioButton"
@@ -99,12 +112,15 @@
 
     <Button
         android:id="@+id/botonRegistrar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="236dp"
+        android:layout_height="52dp"
         android:layout_marginTop="32dp"
+        android:backgroundTint="#EAAA37"
         android:text="Registrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#000000"
+
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
         app:layout_constraintTop_toBottomOf="@+id/radioButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

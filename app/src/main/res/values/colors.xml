@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+        <color name="cinema_dark_red">#D32F2F</color>
+        <color name="cinema_light_red">#F44336</color>
+        <color name="cinema_gold">#FFF8E7</color>
+        <color name="cinema_hint">#757575</color>
+        <color name="cinema_text">#3e2723</color>
+        <color name="cinema_white">#FFFFFF</color>
+        <color name="button_color">#FFFFFF</color>
 </resources>

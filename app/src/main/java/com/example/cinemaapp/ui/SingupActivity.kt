@@ -44,7 +44,7 @@ class SingupActivity : AppCompatActivity() {
                                 finish()
                             } else {
                                 // Si el registro falla, muestra un mensaje al usuario.
-                                Toast.makeText(this, "Error de registro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Error de registro: ${ email} ${password} ${confirmPassword} ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                             }
                         }
                 }

@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 class SingupActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySingupBinding
-    private lateinit var auth: FirebaseAuth // Referencia a FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +67,6 @@ class SingupActivity : AppCompatActivity() {
         // Implementa la navegación a la actividad principal si el usuario ya está autenticado
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        finish()
+
     }
 }

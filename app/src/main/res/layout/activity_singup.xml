@@ -55,7 +55,8 @@
         android:hint="Introduce contraseña"
         app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
         app:layout_constraintStart_toStartOf="@+id/textoRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        />
 
     <EditText
         android:id="@+id/confirmarContraseña"

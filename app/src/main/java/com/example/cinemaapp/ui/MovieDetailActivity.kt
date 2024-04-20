@@ -13,27 +13,29 @@ class MovieDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
 
-        // Recoge la información de la película que se pasó como extra
-        val id = intent.getIntExtra("EXTRA_ID", 0) // Usar un valor predeterminado
+        // Extrae la información de la película pasada como extra
         val title = intent.getStringExtra("EXTRA_TITLE") ?: "Title not available"
         val description = intent.getStringExtra("EXTRA_DESCRIPTION") ?: "Description not available"
         val posterPath = intent.getStringExtra("EXTRA_POSTER_PATH") ?: ""
         val price = intent.getStringExtra("EXTRA_PRICE") ?: "Price not available"
 
-        // Encuentra las vistas por ID y configúralas con la información de la película
+        // Encuentra las vistas por ID
         val imageView: ImageView = findViewById(R.id.detail_movieImageView)
         val titleTextView: TextView = findViewById(R.id.detail_movieTitleTextView)
         val descriptionTextView: TextView = findViewById(R.id.detail_movieDescriptionTextView)
-        val priceTextView: TextView = findViewById(R.id.detail_moviePriceTextView) // Asegúrate de que esta vista exista en tu XML
+        val priceTextView: TextView = findViewById(R.id.detail_moviePriceTextView)
 
         // Configura las vistas
         titleTextView.text = title
         descriptionTextView.text = description
-        priceTextView.text = "Price: $price"
+        priceTextView.text = getString(R.string.price_format, price)
 
         // Usa Glide para cargar la imagen
         Glide.with(this)
             .load(posterPath)
+            .placeholder(R.drawable.placeholder)
+            .error(R.drawable.error)
+            .centerCrop()
             .into(imageView)
 
     }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CinemaApp</string>
+    <string name="price_format">Precio: %s</string>
 </resources>

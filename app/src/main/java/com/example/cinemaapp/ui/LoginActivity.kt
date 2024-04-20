@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var auth: FirebaseAuth // Referencia a FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,10 +50,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             binding.crearCuenta.id -> {
-                // La lógica existente para ir a la pantalla de registro está bien
+
                 val intent = Intent(this, SingupActivity::class.java)
                 startActivity(intent)
-                finish()
+
             }
         }
     }

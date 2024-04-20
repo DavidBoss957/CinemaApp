@@ -52,19 +52,15 @@ class SingupActivity : AppCompatActivity() {
         }
     }
 
-    // Si quieres manejar el usuario actual en onStart puedes hacerlo aquí
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
-        // Actualiza la UI dependiendo del estado del usuario
-        // Si el usuario ya está logueado, puedes redirigirlo directamente
         if (currentUser != null) {
             goToMainActivity()
         }
     }
 
     private fun goToMainActivity() {
-        // Implementa la navegación a la actividad principal si el usuario ya está autenticado
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
 

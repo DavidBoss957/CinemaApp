@@ -1,38 +1,48 @@
 <!-- activity_movie_detail.xml -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/detail_movieImageView"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop" />
+            android:layout_width="300dp"
+            android:layout_height="450dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp" />
 
         <TextView
             android:id="@+id/detail_movieTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp" />
+            android:gravity="center"
+            android:layout_marginTop="16dp" />
 
         <TextView
             android:id="@+id/detail_movieDescriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#BDBDBD"
+            android:gravity="center"
             android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/detail_moviePriceTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#EAAA37"
+            android:gravity="center"
             android:layout_marginTop="8dp"
             android:textAppearance="?attr/textAppearanceListItem" />
 
